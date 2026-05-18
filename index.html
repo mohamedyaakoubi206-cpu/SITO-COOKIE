@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="it" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cookie Analytics Pro | Guida Completa</title>
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    
+    <style>
+        /* Reset e layout generale */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .site-header {
+            display: flex;
+            align-items: center;
+            padding: 1rem 2rem;
+            background: var(--dark-2);
+            border-bottom: 1px solid var(--dark-3);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .site-logo {
+            height: 60px;
+            width: 60px;
+            margin-right: 2rem;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 3px solid var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: transparent;
+            flex-shrink: 0;
+        }
+        
+        .site-logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        
+        .main-nav {
+            flex-grow: 1;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            gap: 2rem;
+        }
+        
+        .nav-menu a {
+            color: var(--light-1);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 0;
+            border-bottom: 2px solid transparent;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+        
+        .nav-menu a:hover {
+            color: var(--primary);
+            border-bottom-color: var(--primary);
+        }
+        
+        .team-names {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            margin-left: 2rem;
+            padding-left: 2rem;
+            border-left: 1px solid var(--dark-3);
+            flex-shrink: 0;
+        }
+        
+        .team-name {
+            font-size: 0.8rem;
+            color: var(--light-2);
+            line-height: 1.2;
+            font-weight: 400;
+            font-family: 'Inter', sans-serif;
+        }
+        
+        /* Layout centrale del contenuto principale */
+        .main-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            max-width: 1400px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        /* Spaziatura tra sezioni */
+        .hero-section {
+            width: 100%;
+            margin: 0 auto 4rem auto; /* Aumentato margine inferiore */
+            max-width: 1200px;
+            padding-top: 2rem; /* Aggiunto padding superiore */
+        }
+        
+        /* Stats grid con più spazio */
+        .stats-grid {
+            max-width: 1200px;
+            margin: 0 auto 4rem auto; /* Aumentato margine inferiore */
+            padding: 2rem 0; /* Aggiunto padding verticale */
+        }
+        
+        /* Features section con più spazio */
+        #features {
+            margin-bottom: 5rem !important; /* Forza più spazio sotto */
+            padding: 2rem 0 3rem 0; /* Aggiunto padding */
+        }
+        
+        .section-title {
+            margin-bottom: 1rem !important; /* Più spazio sotto il titolo */
+        }
+        
+        .section-subtitle {
+            margin-bottom: 3rem !important; /* Più spazio sotto il sottotitolo */
+        }
+        
+        .features-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            gap: 2.5rem; /* Aumentato spazio tra le card */
+        }
+        
+        .feature-card {
+            margin-bottom: 1.5rem; /* Spazio sotto ogni card */
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+        }
+        
+        /* Container video con più spazio */
+        .video-section-container {
+            max-width: 900px;
+            width: 100%;
+            margin: 3rem auto 6rem auto; /* Aumentato spazio verticale */
+            padding: 2rem 0; /* Padding verticale aggiuntivo */
+        }
+        
+        /* Spaziatura per il video stesso */
+        .local-video-container {
+            position: relative;
+            width: 100%;
+            background: var(--dark-2);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+            margin-top: 2rem; /* Più spazio sopra il video */
+            margin-bottom: 2rem; /* Spazio sotto il video */
+        }
+        
+        /* Stili per il video responsive */
+        .local-video-container video {
+            width: 100%;
+            height: auto;
+            display: block;
+            max-height: 500px;
+        }
+        
+        /* Page content con testo CENTRATO */
+        .page-content {
+            max-width: 1000px;
+            width: 100%;
+            margin: 2rem auto 4rem auto; /* Aumentato spazio verticale */
+            padding: 2rem 0; /* Padding verticale */
+            padding-left: 3px;
+            text-align: center; /* Testo centrato */
+        }
+        
+        .content-title {
+            margin-bottom: 1.5rem !important; /* Più spazio sotto i titoli */
+            text-align: center; /* Titoli centrati */
+        }
+        
+        .content-text {
+            margin-bottom: 2rem !important; /* Più spazio sotto i paragrafi */
+            text-align: center; /* Paragrafi centrati */
+            line-height: 1.8; /* Migliore spaziatura tra le righe */
+        }
+        
+        .divider {
+            margin: 3rem auto !important; /* Centrato e con più spazio */
+            height: 2px !important; /* Divider più spesso */
+            background: var(--dark-3) !important;
+            width: 80%; /* Larghezza ridotta per divider centrato */
+            max-width: 600px; /* Larghezza massima */
+        }
+        
+        /* Lista centrata */
+        .content-list {
+            margin-top: 1.5rem !important; /* Più spazio sopra le liste */
+            text-align: left; /* Testo della lista allineato a sinistra */
+            display: inline-block; /* Per centrare la lista */
+            margin-left: 0 !important; /* Rimuove margine sinistro */
+        }
+        
+        .content-list li {
+            margin-bottom: 0.8rem !important; /* Più spazio tra gli elementi della lista */
+            padding-left: 0.5rem; /* Padding per gli elementi della lista */
+            text-align: left; /* Allineamento a sinistra per gli elementi della lista */
+        }
+        
+        /* Sottotitolo centrato nella sezione finale */
+        .content-title[style*="font-size: 1.25rem"] {
+            text-align: center !important;
+            margin-top: 2rem !important;
+            margin-bottom: 1.5rem !important;
+        }
+        
+        /* Messaggio di errore per debug */
+        .video-error-message {
+            display: none;
+            background: var(--dark-3);
+            color: var(--light-1);
+            padding: 1rem;
+            border-radius: 8px;
+            margin-top: 1.5rem; /* Più spazio sopra */
+            font-size: 0.9rem;
+            text-align: left; /* Messaggio di errore allineato a sinistra */
+        }
+        
+        .video-controls-info {
+            text-align: center;
+            margin-top: 1.5rem; /* Più spazio sopra */
+            color: var(--light-3);
+            font-size: 0.9rem;
+            font-style: italic;
+            padding: 0 1rem; /* Padding orizzontale */
+        }
+        
+        /* Separatore visivo tra sezioni principali */
+        .section-separator {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--dark-3), transparent);
+            margin: 3rem auto;
+            width: 80%;
+            max-width: 800px;
+        }
+        
+        /* Responsive design */
+        @media (max-width: 1200px) {
+            .main-content {
+                padding: 1.5rem;
+            }
+            
+            .nav-menu {
+                gap: 1.5rem;
+            }
+            
+            .hero-section {
+                margin-bottom: 3rem;
+            }
+            
+            .stats-grid {
+                margin-bottom: 3rem;
+            }
+            
+            #features {
+                margin-bottom: 4rem !important;
+            }
+        }
+        
+        @media (max-width: 992px) {
+            .site-header {
+                padding: 1rem;
+            }
+            
+            .nav-menu {
+                gap: 1rem;
+            }
+            
+            .team-names {
+                margin-left: 1rem;
+                padding-left: 1rem;
+            }
+            
+            .main-content {
+                padding: 1rem;
+            }
+            
+            .features-grid {
+                gap: 2rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .site-header {
+                flex-wrap: wrap;
+                padding: 0.75rem;
+            }
+            
+            .site-logo {
+                height: 50px;
+                width: 50px;
+                margin-right: 1rem;
+            }
+            
+            .nav-menu {
+                gap: 0.75rem;
+                font-size: 0.9rem;
+            }
+            
+            .team-names {
+                display: none; /* Nascondi nomi su mobile per spazio */
+            }
+            
+            .main-content {
+                padding: 0.75rem;
+            }
+            
+            .hero-section {
+                margin-bottom: 2.5rem;
+                padding-top: 1rem;
+            }
+            
+            .stats-grid {
+                margin-bottom: 2.5rem;
+                padding: 1.5rem 0;
+            }
+            
+            #features {
+                margin-bottom: 3rem !important;
+                padding: 1.5rem 0 2rem 0;
+            }
+            
+            .features-grid {
+                gap: 1.5rem;
+            }
+            
+            .video-section-container {
+                margin: 2rem auto 4rem auto;
+                padding: 1.5rem 0;
+            }
+            
+            .page-content {
+                margin: 1.5rem auto 3rem auto;
+                padding: 1.5rem 0;
+            }
+            
+            .divider {
+                margin: 2rem auto !important;
+                width: 90%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Site Header with Logo and Navigation -->
+    <header class="site-header">
+        <div class="site-logo">
+            <img src="assets/images/logo-cookie-analytics.png.png" alt="Cookie Analytics Pro Logo">
+        </div>
+        
+        <nav class="main-nav">
+            <ul class="nav-menu">
+                <li><a href="index.html" class="active"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="tecnologia.html"><i class="fas fa-microchip"></i> Tecnologia</a></li>
+                <li><a href="normativa.html"><i class="fas fa-gavel"></i> Normativa</a></li>
+                <li><a href="privacy.html"><i class="fas fa-user-shield"></i> Privacy</a></li>
+                <li><a href="soluzioni.html"><i class="fas fa-lightbulb"></i> Soluzioni</a></li>
+                <li><a href="tools.html"><i class="fas fa-tools"></i> Strumenti</a></li>
+            </ul>
+            
+            <div class="team-names">
+                <div class="team-name">Yaakoubi Mohamed</div>
+                <div class="team-name">Scaramella Luca</div>
+                <div class="team-name">Mazzoni Alessandro</div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Breadcrumb -->
+        <div class="breadcrumb" id="breadcrumb">
+            <a href="index.html" class="breadcrumb-item"><i class="fas fa-home"></i> Home</a>
+            <span class="breadcrumb-separator">/</span>
+            <span class="breadcrumb-item">Dashboard</span>
+        </div>
+
+        <!-- Hero Section -->
+        <section class="hero-section fade-in" id="home">
+            <div class="hero-bg"></div>
+            <div class="hero-content">
+                <h1 class="hero-title">Cookie di Terze Parti</h1>
+                <p class="hero-subtitle">
+                    L'analisi completa del tracciamento cross-site: dalla tecnologia alle normative GDPR, 
+                    dalle implicazioni privacy alle soluzioni alternative emergenti. Una risorsa indispensabile 
+                    per sviluppatori, marketer e professionisti della privacy.
+                </p>
+                <div class="btn-group">
+                    <button class="btn" onclick="openModal('techModal')">
+                        <i class="fas fa-rocket"></i>
+                        <span>Inizia Esplorazione</span>
+                    </button>
+                    <a href="#features" class="btn btn-outline">
+                        <i class="fas fa-arrow-down"></i>
+                        <span>Scopri Tutto</span>
+                    </a>
+                    <a href="tools.html" class="btn btn-outline">
+                        <i class="fas fa-tools"></i>
+                        <span>Vai agli Strumenti</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Separatore visivo -->
+        <div class="section-separator"></div>
+
+        <!-- Stats Section -->
+        <div class="stats-grid">
+            <div class="stat-card fade-in" style="animation-delay: 0.1s;">
+                <div class="stat-value">85%</div>
+                <div class="stat-label">Siti con cookie terze parti</div>
+            </div>
+            <div class="stat-card fade-in" style="animation-delay: 0.2s;">
+                <div class="stat-value">2024</div>
+                <div class="stat-label">Fine cookie in Chrome</div>
+            </div>
+            <div class="stat-card fade-in" style="animation-delay: 0.3s;">
+                <div class="stat-value">20M€</div>
+                <div class="stat-label">Sanzione massima GDPR</div>
+            </div>
+            <div class="stat-card fade-in" style="animation-delay: 0.4s;">
+                <div class="stat-value">7/10</div>
+                <div class="stat-label">Utenti preoccupati privacy</div>
+            </div>
+        </div>
+
+        <!-- Separatore visivo -->
+        <div class="section-separator"></div>
+
+        <!-- Features Grid -->
+        <section id="features" class="fade-in" style="animation-delay: 0.5s;">
+            <h2 class="section-title">Cosa Troverai in Questa Guida</h2>
+            <p class="section-subtitle">Una panoramica completa su tutti gli aspetti dei cookie di terze parti</p>
+            
+            <div class="features-grid">
+                <div class="feature-card" onclick="location.href='tecnologia.html'">
+                    <div class="feature-icon">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <h3 class="feature-title">Analisi Tecnica</h3>
+                    <p class="feature-desc">
+                        Scopri il funzionamento tecnico dei cookie di terze parti, dal protocollo HTTP 
+                        al tracciamento cross-site. Visualizza diagrammi interattivi che spiegano il 
+                        flusso di dati tra browser e server.
+                    </p>
+                    <div class="feature-tags">
+                        <span class="tag">HTTP Protocol</span>
+                        <span class="tag">JavaScript</span>
+                        <span class="tag">Browser API</span>
+                    </div>
+                </div>
+                
+                <div class="feature-card" onclick="location.href='normativa.html'">
+                    <div class="feature-icon">
+                        <i class="fas fa-balance-scale"></i>
+                    </div>
+                    <h3 class="feature-title">Quadro Normativo</h3>
+                    <p class="feature-desc">
+                        Approfondisci le normative GDPR e ePrivacy, con focus sulla giurisprudenza 
+                        italiana ed europea. Linee guida pratiche per la compliance e gestione 
+                        del consenso utente.
+                    </p>
+                    <div class="feature-tags">
+                        <span class="tag">GDPR</span>
+                        <span class="tag">ePrivacy</span>
+                        <span class="tag">Compliance</span>
+                    </div>
+                </div>
+                
+                <div class="feature-card" onclick="location.href='privacy.html'">
+                    <div class="feature-icon">
+                        <i class="fas fa-user-shield"></i>
+                    </div>
+                    <h3 class="feature-title">Privacy & Sicurezza</h3>
+                    <p class="feature-desc">
+                        Analisi dei rischi per la privacy, tecniche di fingerprinting, e misure 
+                        di protezione. Guida pratica per utenti e sviluppatori sulla gestione 
+                        sicura dei cookie.
+                    </p>
+                    <div class="feature-tags">
+                        <span class="tag">Privacy</span>
+                        <span class="tag">Security</span>
+                        <span class="tag">Fingerprinting</span>
+                    </div>
+                </div>
+                
+                <div class="feature-card" onclick="location.href='soluzioni.html'">
+                    <div class="feature-icon">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <h3 class="feature-title">Soluzioni Future</h3>
+                    <p class="feature-desc">
+                        Esplora le alternative emergenti: Privacy Sandbox di Google, first-party 
+                        data strategies, contextual advertising e tecnologie privacy-enhancing.
+                    </p>
+                    <div class="feature-tags">
+                        <span class="tag">Innovation</span>
+                        <span class="tag">Privacy Sandbox</span>
+                        <span class="tag">Contextual</span>
+                    </div>
+                </div>
+                
+                <div class="feature-card" onclick="location.href='tools.html'">
+                    <div class="feature-icon">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <h3 class="feature-title">Strumenti Pratici</h3>
+                    <p class="feature-desc">
+                        Collezione di strumenti, scanner, e utilities per analizzare, gestire 
+                        e ottimizzare l'uso dei cookie. Risorse per sviluppatori e professionisti.
+                    </p>
+                    <div class="feature-tags">
+                        <span class="tag">Scanner</span>
+                        <span class="tag">Debug</span>
+                        <span class="tag">Utilities</span>
+                    </div>
+                </div>
+                
+                <div class="feature-card" onclick="openModal('techModal')">
+                    <div class="feature-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3 class="feature-title">Apprendimento</h3>
+                    <p class="feature-desc">
+                        Risorse educative, glossario, FAQ e guide passo-passo. Tutto quello che 
+                        serve per diventare un esperto di cookie e privacy online.
+                    </p>
+                    <div class="feature-tags">
+                        <span class="tag">Glossario</span>
+                        <span class="tag">FAQ</span>
+                        <span class="tag">Guide</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Separatore visivo -->
+        <div class="section-separator"></div>
+
+        <!-- Local Video Section - Centrata e responsive -->
+        <div class="video-section-container fade-in" style="animation-delay: 0.6s;">
+            <h2 class="section-title">Video Esplicativo: Come Funzionano i Cookie di Terze Parti</h2>
+            
+            <div class="local-video-container">
+                <!-- Video con percorso assoluto per debug -->
+                <video controls preload="metadata" style="width: 100%; height: auto;">
+                    <source src="assets/videos/cookie-terze-parti.mp4" type="video/mp4">
+                    <source src="SITO/assets/videos/cookie-terze-parti.mp4" type="video/mp4">
+                    
+                    <!-- Messaggio di fallback -->
+                    <p style="padding: 2rem; text-align: center; color: var(--light-1);">
+                        Il tuo browser non supporta la riproduzione video HTML5.<br>
+                        <a href="assets/videos/cookie-terze-parti.mp4" style="color: var(--primary); text-decoration: underline;">
+                            Clicca qui per scaricare il video
+                        </a>
+                    </p>
+                </video>
+            </div>
+            
+            <div class="video-controls-info">
+                <i class="fas fa-info-circle"></i> Usa i controlli del video per mettere in pausa, riprodurre e regolare il volume
+            </div>
+            
+            <!-- Messaggio di debug per problemi con il video -->
+            <div id="videoError" class="video-error-message">
+                <p><strong>Problema con il video?</strong> Verifica che:</p>
+                <ol>
+                    <li>Il file video esista nel percorso: assets/videos/cookie-terze-parti.mp4</li>
+                    <li>Il file sia un video MP4 valido</li>
+                    <li>Il browser supporti la riproduzione video HTML5</li>
+                </ol>
+            </div>
+        </div>
+
+        <!-- Separatore visivo -->
+        <div class="section-separator"></div>
+
+        <!-- Content Sections - TESTO CENTRATO -->
+        <div class="page-content fade-in" style="animation-delay: 0.7s;">
+            <section id="intro">
+                <h2 class="content-title">
+                    <i class="fas fa-book-open"></i>
+                    Introduzione
+                </h2>
+                <p class="content-text">
+                    I cookie di terze parti rappresentano una delle tecnologie più discusse nell'ambito 
+                    della privacy digitale. Utilizzati principalmente per il tracciamento degli utenti 
+                    attraverso siti web diversi, questi cookie hanno rivoluzionato il marketing digitale 
+                    ma sollevano importanti questioni riguardanti la privacy degli utenti.
+                </p>
+            </section>
+
+            <div class="divider"></div>
+
+            <section id="definition">
+                <h2 class="content-title">
+                    <i class="fas fa-bullseye"></i>
+                    Cosa Sono i Cookie di Terze Parti
+                </h2>
+                <p class="content-text">
+                    A differenza dei cookie di prima parte, che sono impostati dal dominio visitato 
+                    direttamente dall'utente, i cookie di terze parti sono impostati da domini diversi 
+                    da quello visualizzato nella barra degli indirizzi del browser.
+                </p>
+                
+                <h3 class="content-title" style="font-size: 1.25rem; margin-top: 1.5rem;">
+                    Caratteristiche principali:
+                </h3>
+                <ul class="content-list">
+                    <li><strong>Cross-domain:</strong> Funzionano attraverso diversi siti web</li>
+                    <li><strong>Tracciamento:</strong> Riconoscono lo stesso utente su domini diversi</li>
+                    <li><strong>Pubblicità:</strong> Utilizzati principalmente per advertising targeting</li>
+                    <li><strong>Analytics:</strong> Forniscono dati di analisi cross-site</li>
+                </ul>
+            </section>
+        </div>
+
+        <!-- Footer -->
+        <!--#include virtual="components/footer.html" -->
+    </main>
+
+    <!-- Modals -->
+    <div class="modal" id="techModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">Analisi Tecnica dei Cookie</h3>
+                <button class="modal-close" onclick="closeModal('techModal')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <h4>Funzionamento Tecnico</h4>
+                <p>I cookie di terze parti funzionano attraverso un meccanismo specifico:</p>
+                <ol>
+                    <li><strong>Inclusione della risorsa esterna:</strong> Il sito incorpora script, immagini o iframe da domini terzi</li>
+                    <li><strong>Richiesta HTTP:</strong> Il browser richiede la risorsa al server terzo</li>
+                    <li><strong>Impostazione cookie:</strong> Il server risponde con la risorsa e l'header Set-Cookie</li>
+                    <li><strong>Riconoscimento cross-site:</strong> Il cookie viene inviato ad ogni visita successiva a siti che usano lo stesso fornitore</li>
+                </ol>
+                
+                <h4>Codice Esempio</h4>
+                <div class="code-block">
+                    <pre class="code-font">
+// Esempio di richiesta HTTP con cookie di terza parte
+GET /tracker.js HTTP/1.1
+Host: adnetwork.com
+User-Agent: Mozilla/5.0
+
+// Risposta del server terzo
+HTTP/1.1 200 OK
+Content-Type: application/javascript
+Set-Cookie: tracking_id=abc123xyz; Domain=.adnetwork.com; Max-Age=63072000; Path=/; Secure
+                    </pre>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="assets/js/main.js"></script>
+    
+    <script>
+        // Funzione per gestire errori del video
+        document.addEventListener('DOMContentLoaded', function() {
+            const video = document.querySelector('video');
+            const videoError = document.getElementById('videoError');
+            
+            if (video) {
+                video.addEventListener('error', function(e) {
+                    console.error('Errore nel caricamento del video:', video.error);
+                    videoError.style.display = 'block';
+                    
+                    // Debug: mostra il percorso attuale del video
+                    const sourceElements = video.querySelectorAll('source');
+                    sourceElements.forEach((source, index) => {
+                        console.log(`Fonte video ${index + 1}: ${source.src}`);
+                    });
+                });
+                
+                // Prova a caricare il video
+                video.load();
+            }
+        });
+        
+        // Update the demo functions since we removed the demo section
+        function startDemo() {
+            alert("La demo è stata sostituita dal video esplicativo. Guarda il video per comprendere il tracciamento cross-site.");
+        }
+        
+        function resetDemo() {
+            // Function kept for compatibility
+        }
+        
+        function playDemoAnimation() {
+            alert("Guarda il video incorporato nella pagina principale per una spiegazione visiva del tracciamento cross-site.");
+        }
+    </script>
+</body>
+</html>

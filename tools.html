@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="it" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Strumenti | Cookie Analytics Pro</title>
+    
+    <!-- Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            updateBreadcrumb('Strumenti');
+        });
+    </script>
+</head>
+<body>
+    <!--#include virtual="components/navbar.html" -->
+    <!--#include virtual="components/sidebar.html" -->
+
+    <main class="main-content">
+        <div class="breadcrumb" id="breadcrumb"></div>
+
+        <section class="hero-section fade-in">
+            <div class="hero-bg"></div>
+            <div class="hero-content">
+                <h1 class="hero-title">Strumenti Utili</h1>
+                <p class="hero-subtitle">
+                    Collezione di strumenti, risorse e utilities per analizzare, gestire 
+                    e ottimizzare l'uso dei cookie. Scanner, tester, generatori e molto altro 
+                    per sviluppatori e professionisti della privacy.
+                </p>
+            </div>
+        </section>
+
+        <!-- Stats Section -->
+        <div class="stats-grid">
+            <div class="stat-card fade-in" style="animation-delay: 0.1s;">
+                <div class="stat-value">50+</div>
+                <div class="stat-label">Strumenti disponibili</div>
+            </div>
+            <div class="stat-card fade-in" style="animation-delay: 0.2s;">
+                <div class="stat-value">24/7</div>
+                <div class="stat-label">Accesso online</div>
+            </div>
+            <div class="stat-card fade-in" style="animation-delay: 0.3s;">
+                <div class="stat-value">100%</div>
+                <div class="stat-label">Gratuiti</div>
+            </div>
+            <div class="stat-card fade-in" style="animation-delay: 0.4s;">
+                <div class="stat-value">Open</div>
+                <div class="stat-label">Source & trasparenti</div>
+            </div>
+        </div>
+
+        <div class="page-content fade-in">
+            <section id="analisi">
+                <h2 class="content-title">
+                    <i class="fas fa-search"></i>
+                    Strumenti di Analisi Cookie
+                </h2>
+                <p class="content-text">
+                    Tools per analizzare i cookie presenti sui siti web, identificare tracker, 
+                    e verificare la conformità alle normative sulla privacy.
+                </p>
+                
+                <div class="features-grid" style="margin-top: 1rem;">
+                    <div class="feature-card" onclick="openToolModal('cookieScanner')">
+                        <div class="feature-icon">
+                            <i class="fas fa-cookie-bite"></i>
+                        </div>
+                        <h3 class="feature-title">Cookie Scanner</h3>
+                        <p class="feature-desc">
+                            Scanner automatico per rilevare tutti i cookie e tracker presenti 
+                            su un sito web. Analisi approfondita con report dettagliato.
+                        </p>
+                        <div class="feature-tags">
+                            <span class="tag">Automatic</span>
+                            <span class="tag">Detailed Report</span>
+                        </div>
+                    </div>
+                    
+                    <div class="feature-card" onclick="openToolModal('trackerDetector')">
+                        <div class="feature-icon">
+                            <i class="fas fa-radar"></i>
+                        </div>
+                        <h3 class="feature-title">Tracker Detector</h3>
+                        <p class="feature-desc">
+                            Identifica tracker di terze parti, pixel di tracciamento, 
+                            e tecnologie di fingerprinting utilizzate sul sito.
+                        </p>
+                        <div class="feature-tags">
+                            <span class="tag">Third-party</span>
+                            <span class="tag">Fingerprinting</span>
+                        </div>
+                    </div>
+                    
+                    <div class="feature-card" onclick="openToolModal('privacyAudit')">
+                        <div class="feature-icon">
+                            <i class="fas fa-clipboard-check"></i>
+                        </div>
+                        <h3 class="feature-title">Privacy Audit Tool</h3>
+                        <p class="feature-desc">
+                            Verifica automatica della conformità GDPR/ePrivacy. 
+                            Controlla banner cookie, informative, e gestione consenso.
+                        </p>
+                        <div class="feature-tags">
+                            <span class="tag">GDPR</span>
+                            <span class="tag">Compliance</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Demo Tool -->
+                <div class="demo-section" style="margin: 2rem 0;">
+                    <div class="demo-header">
+                        <h3 class="demo-title">Demo: Scanner Cookie Online</h3>
+                        <div class="demo-controls">
+                            <div style="display: flex; gap: 1rem; align-items: center;">
+                                <input type="text" id="scanUrl" placeholder="Inserisci URL (es: https://example.com)" 
+                                       style="padding: 0.75rem; background: var(--dark-1); border: 1px solid rgba(255,255,255,0.1); 
+                                              border-radius: var(--radius-sm); color: white; min-width: 300px;">
+                                <button class="btn" onclick="scanWebsite()">
+                                    <i class="fas fa-search"></i>
+                                    <span>Analizza</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="demo-visualization" style="height: 400px;" id="scanResults">
+                        <div style="display: flex; justify-content: center; align-items: center; height: 100%; color: var(--light-3);">
+                            <div style="text-align: center;">
+                                <i class="fas fa-search" style="font-size: 3rem; margin-bottom: 1rem; color: var(--primary);"></i>
+                                <p>Inserisci un URL e clicca "Analizza" per scansionare i cookie</p>
+                                <p style="font-size: 0.875rem; margin-top: 0.5rem; color: var(--light-3);">
+                                    Esempio: https://example.com
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <div class="divider"></div>
+
+            <section id="sviluppo">
+                <h2 class="content-title">
+                    <i class="fas fa-code"></i>
+                    Strumenti per Sviluppatori
+                </h2>
+                <p class="content-text">
+                    Libraries, SDK, e tools per sviluppatori per implementare funzionalità 
+                    relative ai cookie in modo sicuro e conforme.
+                </p>
+                
+                <div class="features-grid" style="margin-top: 1rem;">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fab fa-js"></i>
+                        </div>
+                        <h3 class="feature-title">Cookie Consent JS</h3>
+                        <p class="feature-desc">
+                            Libreria JavaScript leggera per implementare banner cookie 
+                            conformi al GDPR. Personalizzabile e senza dipendenze.
+                        </p>
+                        <div class="feature-tags">
+                            <span class="tag">JavaScript</span>
+                            <span class="tag">Lightweight</span>
+                        </div>
+                        <div style="margin-top: 1rem;">
+                            <button onclick="copyCode('cookieConsentCode')" class="btn" style="padding: 0.5rem 1rem; font-size: 0.875rem;">
+                                <i class="fas fa-copy"></i>
+                                <span>Copia Codice</span>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fab fa-react"></i>
+                        </div>
+                        <h3 class="feature-title">React Cookie Consent</h3>
+                        <p class="feature-desc">
+                            Componente React per la gestione del consenso cookie. 
+                            Supporta TypeScript e tema personalizzabile.
+                        </p>
+                        <div class="feature-tags">
+                            <span class="tag">React</span>
+                            <span class="tag">TypeScript</span>
+                        </div>
+                        <div style="margin-top: 1rem;">
+                            <button onclick="copyCode('reactCookieCode')" class="btn" style="padding: 0.5rem 1rem; font-size: 0.875rem;">
+                                <i class="fas fa-copy"></i>
+                                <span>Copia Codice</span>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fab fa-python"></i>
+                        </div>
+                        <h3 class="feature-title">Django Cookie Law</h3>
+                        <p class="feature-desc">
+                            App Django per gestire il consenso cookie in applicazioni 
+                            Python/Django. Conforme GDPR e ePrivacy.
+                        </p>
+                        <div class="feature-tags">
+                            <span class="tag">Python</span>
+                            <span class="tag">Django</span>
+                        </div>
+                        <div style="margin-top: 1rem;">
+                            <button onclick="copyCode('djangoCookieCode')" class="btn" style="padding: 0.5rem 1rem; font-size: 0.875rem;">
+                                <i class="fas fa-copy"></i>
+                                <span>Copia Codice</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="code-block" id="codeSamples" style="display: none;">
+                    <pre id="cookieConsentCode" class="code-font">
+// Cookie Consent Banner - Vanilla JavaScript
+class CookieConsent {
+    constructor(options = {}) {
+        this.options = {
+            message: 'Utilizziamo cookie per migliorare la tua esperienza...',
+            acceptText: 'Accetta',
+            rejectText: 'Rifiuta',
+            ...options
+        };
+        this.init();
+    }
+    
+    init() {
+        if (!this.getConsent()) {
+            this.showBanner();
+        }
+    }
+    
+    showBanner() {
+        // Implementation here
+    }
+    
+    getConsent() {
+        return localStorage.getItem('cookie-consent');
+    }
+}
+                    </pre>
+                    
+                    <pre id="reactCookieCode" class="code-font" style="display: none;">
+// React Cookie Consent Component
+import React, { useState } from 'react';
+
+const CookieConsent = ({ message, acceptText, rejectText }) => {
+    const [visible, setVisible] = useState(!localStorage.getItem('cookie-consent'));
+    
+    const accept = () => {
+        localStorage.setItem('cookie-consent', 'accepted');
+        setVisible(false);
+    };
+    
+    const reject = () => {
+        localStorage.setItem('cookie-consent', 'rejected');
+        setVisible(false);
+    };
+    
+    if (!visible) return null;
+    
+    return (
+        <div className="cookie-banner">
+            <p>{message}</p>
+            <button onClick={accept}>{acceptText}</button>
+            <button onClick={reject}>{rejectText}</button>
+        </div>
+    );
+};
+                    </pre>
+                    
+                    <pre id="djangoCookieCode" class="code-font" style="display: none;">
+# Django Cookie Law Middleware
+from django.utils.deprecation import MiddlewareMixin
+
+class CookieConsentMiddleware(MiddlewareMixin):
+    def process_request(self, request):
+        consent = request.COOKIES.get('cookie_consent')
+        request.has_cookie_consent = consent == 'true'
+        return None
+    
+    def process_response(self, request, response):
+        if 'set_cookie_consent' in request.session:
+            response.set_cookie(
+                'cookie_consent',
+                request.session['set_cookie_consent'],
+                max_age=365*24*60*60,
+                httponly=True,
+                samesite='Lax'
+            )
+        return response
+                    </pre>
+                </div>
+            </section>
+
+            <div class="divider"></div>
+
+            <section id="test">
+                <h2 class="content-title">
+                    <i class="fas fa-vial"></i>
+                    Strumenti di Test e Debug
+                </h2>
+                <p class="content-text">
+                    Tools per testare e debuggare l'implementazione dei cookie durante 
+                    lo sviluppo di applicazioni web.
+                </p>
+                
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; margin-top: 1rem;">
+                    <div style="background: var(--dark-1); padding: 1.5rem; border-radius: var(--radius-sm);">
+                        <h4 style="color: white; margin-bottom: 1rem;">
+                            <i class="fas fa-cookie"></i>
+                            Cookie Editor
+                        </h4>
+                        <p style="color: var(--light-3); margin-bottom: 1.5rem;">
+                            Estensione browser per visualizzare, modificare e creare cookie. 
+                            Essenziale per il debugging durante lo sviluppo.
+                        </p>
+                        <a href="#" class="btn" style="padding: 0.5rem 1rem; font-size: 0.875rem;">
+                            <i class="fas fa-external-link-alt"></i>
+                            <span>Installa Estensione</span>
+                        </a>
+                    </div>
+                    
+                    <div style="background: var(--dark-1); padding: 1.5rem; border-radius: var(--radius-sm);">
+                        <h4 style="color: white; margin-bottom: 1rem;">
+                            <i class="fas fa-network-wired"></i>
+                            Network Analyzer
+                        </h4>
+                        <p style="color: var(--light-3); margin-bottom: 1.5rem;">
+                    Strumento per analizzare le richieste HTTP e identificare 
+                    richieste di cookie e tracker di terze parti.
+                        </p>
+                        <button onclick="openNetworkAnalyzer()" class="btn" style="padding: 0.5rem 1rem; font-size: 0.875rem;">
+                            <i class="fas fa-play"></i>
+                            <span>Apri Tool</span>
+                        </button>
+                    </div>
+                    
+                    <div style="background: var(--dark-1); padding: 1.5rem; border-radius: var(--radius-sm);">
+                        <h4 style="color: white; margin-bottom: 1rem;">
+                            <i class="fas fa-mobile-alt"></i>
+                            Mobile Tester
+                        </h4>
+                        <p style="color: var(--light-3); margin-bottom: 1.5rem;">
+                            Simulatore per testare il comportamento dei cookie su 
+                            diversi dispositivi mobile e browser.
+                        </p>
+                        <button onclick="openMobileTester()" class="btn" style="padding: 0.5rem 1rem; font-size: 0.875rem;">
+                            <i class="fas fa-play"></i>
+                            <span>Apri Tester</span>
+                        </button>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!--#include virtual="components/footer.html" -->
+    </main>
+
+    <!-- Tool Modals -->
+    <div class="modal" id="toolModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title" id="toolModalTitle">Tool Details</h3>
+                <button class="modal-close" onclick="closeModal('toolModal')">&times;</button>
+            </div>
+            <div class="modal-body" id="toolModalBody">
+                <!-- Content will be loaded here -->
+            </div>
+        </div>
+    </div>
+
+    <script src="assets/js/main.js"></script>
+    
+    <script>
+        // Tool functions
+        function openToolModal(toolId) {
+            const titles = {
+                'cookieScanner': 'Cookie Scanner Tool',
+                'trackerDetector': 'Tracker Detector',
+                'privacyAudit': 'Privacy Audit Tool'
+            };
+            
+            const contents = {
+                'cookieScanner': `
+                    <h4>Funzionalità:</h4>
+                    <ul>
+                        <li>Scansione automatica di tutti i cookie</li>
+                        <li>Identificazione cookie di prima/terza parte</li>
+                        <li>Analisi durata cookie</li>
+                        <li>Report dettagliato in PDF/CSV</li>
+                    </ul>
+                    
+                    <h4>Come Usare:</h4>
+                    <ol>
+                        <li>Inserisci l'URL del sito da scansionare</li>
+                        <li>Clicca su "Avvia Scansione"</li>
+                        <li>Attendi l'analisi (circa 30 secondi)</li>
+                        <li>Scarica o visualizza il report</li>
+                    </ol>
+                    
+                    <div style="text-align: center; margin-top: 2rem;">
+                        <button class="btn" onclick="closeModal('toolModal'); document.getElementById('scanUrl').focus();">
+                            <i class="fas fa-play"></i>
+                            <span>Prova Ora</span>
+                        </button>
+                    </div>
+                `,
+                
+                'trackerDetector': `
+                    <h4>Funzionalità:</h4>
+                    <ul>
+                        <li>Rilevamento tracker di advertising</li>
+                        <li>Identificazione pixel di tracciamento</li>
+                        <li>Analisi fingerprinting techniques</li>
+                        <li>Mappa delle connessioni di terze parti</li>
+                    </ul>
+                    
+                    <h4>Tracker Comuni Rilevati:</h4>
+                    <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; margin: 1rem 0;">
+                        <div style="color: var(--light-3);">Google Analytics</div>
+                        <div style="color: var(--light-3);">Facebook Pixel</div>
+                        <div style="color: var(--light-3);">Hotjar</div>
+                        <div style="color: var(--light-3);">Google Tag Manager</div>
+                        <div style="color: var(--light-3);">LinkedIn Insight</div>
+                        <div style="color: var(--light-3);">Twitter Pixel</div>
+                    </div>
+                `,
+                
+                'privacyAudit': `
+                    <h4>Funzionalità:</h4>
+                    <ul>
+                        <li>Verifica conformità GDPR/ePrivacy</li>
+                        <li>Analisi banner cookie</li>
+                        <li>Controllo informativa privacy</li>
+                        <li>Valutazione rischio privacy</li>
+                    </ul>
+                    
+                    <h4>Criteri di Valutazione:</h4>
+                    <div style="background: var(--dark-1); padding: 1rem; border-radius: var(--radius-sm); margin: 1rem 0;">
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                            <span>Consenso Preventivo</span>
+                            <span style="color: var(--secondary);">✓</span>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                            <span>Granularità Consenso</span>
+                            <span style="color: var(--secondary);">✓</span>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                            <span>Revocabilità</span>
+                            <span style="color: var(--secondary);">✓</span>
+                        </div>
+                        <div style="display: flex; justify-content: space-between;">
+                            <span>Registro Consensi</span>
+                            <span style="color: var(--secondary);">✓</span>
+                        </div>
+                    </div>
+                `
+            };
+            
+            document.getElementById('toolModalTitle').textContent = titles[toolId];
+            document.getElementById('toolModalBody').innerHTML = contents[toolId];
+            openModal('toolModal');
+        }
+        
+        function scanWebsite() {
+            const url = document.getElementById('scanUrl').value;
+            if (!url) {
+                showNotification('Inserisci un URL valido', 'error');
+                return;
+            }
+            
+            const resultsDiv = document.getElementById('scanResults');
+            resultsDiv.innerHTML = `
+                <div style="padding: 2rem;">
+                    <div style="text-align: center; margin-bottom: 2rem;">
+                        <i class="fas fa-spinner fa-spin" style="font-size: 2rem; color: var(--primary);"></i>
+                        <div style="color: var(--light-3); margin-top: 1rem;">Scansione in corso...</div>
+                    </div>
+                    
+                    <div style="background: var(--dark-1); padding: 1rem; border-radius: var(--radius-sm); margin-bottom: 1rem;">
+                        <div style="color: white; margin-bottom: 0.5rem;">URL: ${url}</div>
+                        <div style="color: var(--light-3); font-size: 0.875rem;">Analisi cookie e tracker in corso</div>
+                    </div>
+                </div>
+            `;
+            
+            // Simulate scan
+            setTimeout(() => {
+                showScanResults(url);
+            }, 2000);
+        }
+        
+        function showScanResults(url) {
+            const resultsDiv = document.getElementById('scanResults');
+            resultsDiv.innerHTML = `
+                <div style="padding: 2rem;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
+                        <div>
+                            <h4 style="color: white;">Risultati Scansione</h4>
+                            <div style="color: var(--light-3); font-size: 0.875rem;">${url}</div>
+                        </div>
+                        <button class="btn" onclick="downloadScanReport()" style="padding: 0.5rem 1rem;">
+                            <i class="fas fa-download"></i>
+                            <span>Scarica Report</span>
+                        </button>
+                    </div>
+                    
+                    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-bottom: 2rem;">
+                        <div style="background: var(--dark-1); padding: 1rem; border-radius: var(--radius-sm); text-align: center;">
+                            <div style="font-size: 2rem; color: var(--primary); font-weight: bold;">14</div>
+                            <div style="color: var(--light-3);">Cookie Totali</div>
+                        </div>
+                        <div style="background: var(--dark-1); padding: 1rem; border-radius: var(--radius-sm); text-align: center;">
+                            <div style="font-size: 2rem; color: var(--danger); font-weight: bold;">9</div>
+                            <div style="color: var(--light-3);">Cookie Terze Parti</div>
+                        </div>
+                        <div style="background: var(--dark-1); padding: 1rem; border-radius: var(--radius-sm); text-align: center;">
+                            <div style="font-size: 2rem; color: var(--warning); font-weight: bold;">3</div>
+                            <div style="color: var(--light-3);">Tracker Rilevati</div>
+                        </div>
+                    </div>
+                    
+                    <div style="background: var(--dark-1); padding: 1rem; border-radius: var(--radius-sm);">
+                        <h5 style="color: white; margin-bottom: 1rem;">Tracker Identificati:</h5>
+                        <div style="color: var(--light-3);">
+                            <div style="margin-bottom: 0.5rem;">• Google Analytics (analytics.google.com)</div>
+                            <div style="margin-bottom: 0.5rem;">• Facebook Pixel (connect.facebook.net)</div>
+                            <div>• Google Tag Manager (googletagmanager.com)</div>
+                        </div>
+                    </div>
+                    
+                    <div style="margin-top: 1.5rem; padding: 1rem; background: rgba(239, 68, 68, 0.1); border-radius: var(--radius-sm);">
+                        <div style="color: var(--danger); font-weight: bold;">
+                            <i class="fas fa-exclamation-triangle"></i>
+                            Attenzione: Sono stati rilevati cookie di terze parti senza consenso esplicito
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+        
+        function downloadScanReport() {
+            showNotification('Report scaricato con successo!', 'success');
+        }
+        
+        function downloadTemplate(template) {
+            const templates = {
+                'cookiePolicy': 'Template Informativa Cookie',
+                'consentRegister': 'Template Registro Consensi',
+                'bannerScript': 'Script Banner Cookie',
+                'auditReport': 'Template Report Audit'
+            };
+            showNotification(`Download di "${templates[template]}" iniziato`, 'success');
+        }
+        
+        function copyCode(codeId) {
+            const codeBlock = document.getElementById('codeSamples');
+            codeBlock.style.display = 'block';
+            
+            // Hide all code blocks
+            document.querySelectorAll('#codeSamples pre').forEach(pre => {
+                pre.style.display = 'none';
+            });
+            
+            // Show selected code block
+            const selectedCode = document.getElementById(codeId);
+            selectedCode.style.display = 'block';
+            
+            // Copy to clipboard
+            const codeText = selectedCode.textContent;
+            navigator.clipboard.writeText(codeText).then(() => {
+                showNotification('Codice copiato negli appunti!', 'success');
+            }).catch(err => {
+                showNotification('Errore nella copia del codice', 'error');
+            });
+            
+            // Scroll to code block
+            codeBlock.scrollIntoView({ behavior: 'smooth' });
+        }
+        
+        function openNetworkAnalyzer() {
+            openToolModal('trackerDetector');
+        }
+        
+        function openMobileTester() {
+            showNotification('Mobile Tester aperto in nuova finestra', 'info');
+            // In a real implementation, this would open a mobile testing interface
+        }
+    </script>
+</body>
+</html>

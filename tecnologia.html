@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="it" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tecnologia Cookie | Cookie Analytics Pro</title>
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            updateBreadcrumb('Tecnologia');
+        });
+    </script>
+</head>
+<body>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Breadcrumb -->
+        <div class="breadcrumb" id="breadcrumb">
+            <!-- Will be filled by JavaScript -->
+        </div>
+
+        <!-- Hero Section -->
+        <section class="hero-section fade-in">
+            <div class="hero-bg"></div>
+            <div class="hero-content">
+                <h1 class="hero-title">Tecnologia dei Cookie</h1>
+                <p class="hero-subtitle">
+                    Scopri il funzionamento tecnico, le implementazioni, e le tecnologie correlate 
+                    che consentono il tracciamento cross-site. Un'analisi approfondita delle 
+                    architetture, protocolli e meccanismi alla base dei cookie di terze parti.
+                </p>
+            </div>
+        </section>
+
+        <!-- Page Content -->
+        <div class="page-content fade-in">
+            <section id="funzionamento">
+                <h2 class="content-title">
+                    <i class="fas fa-cogs"></i>
+                    Come Funzionano i Cookie di Terze Parti
+                </h2>
+                <p class="content-text">
+                    I cookie di terze parti operano attraverso un sofisticato sistema che coinvolge 
+                    browser, server e domini multipli. Il loro funzionamento si basa sul protocollo 
+                    HTTP e sulle politiche di sicurezza dei browser moderni.
+                </p>
+                
+                <h3 class="content-title" style="font-size: 1.25rem; margin-top: 1.5rem;">
+                    Processo di Impostazione:
+                </h3>
+                <ol class="content-list">
+                    <li>L'utente visita un sito web (esempio.com)</li>
+                    <li>Il sito include una risorsa esterna (script, immagine, iframe) da un dominio terzo (tracker.net)</li>
+                    <li>Il browser invia una richiesta HTTP a tracker.net</li>
+                    <li>Il server tracker.net risponde con la risorsa e l'header Set-Cookie</li>
+                    <li>Il browser memorizza il cookie con dominio .tracker.net</li>
+                    <li>Quando l'utente visita un altro sito che usa tracker.net, il browser invia automaticamente il cookie</li>
+                </ol>
+                
+                <div class="code-block">
+                    <h4>Esempio di Header Set-Cookie:</h4>
+                    <pre class="code-font">
+Set-Cookie: id=3db2abcd; Domain=.adnetwork.com; 
+Path=/; Max-Age=31536000; Secure; HttpOnly; SameSite=None
+                    </pre>
+                </div>
+            </section>
+
+            <div class="divider"></div>
+
+            <section id="tracking">
+                <h2 class="content-title">
+                    <i class="fas fa-map-marker-alt"></i>
+                    Cross-Site Tracking
+                </h2>
+                <p class="content-text">
+                    Il tracciamento cross-site rappresenta la caratteristica più potente (e controversa) 
+                    dei cookie di terze parti. Consente di riconoscere lo stesso utente attraverso 
+                    diversi siti web, creando un profilo di navigazione dettagliato.
+                </p>
+                
+                <div style="background: rgba(99, 102, 241, 0.1); padding: 1.5rem; border-radius: var(--radius-sm); margin: 1.5rem 0;">
+                    <h4 style="color: var(--primary); margin-bottom: 1rem;">Esempio di Tracciamento:</h4>
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                        <div style="text-align: center;">
+                            <div style="width: 60px; height: 60px; background: var(--primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 0.5rem; color: white;">A</div>
+                            <div style="font-size: 0.875rem;">Sito A</div>
+                        </div>
+                        <div style="font-size: 1.5rem; color: var(--primary);">→</div>
+                        <div style="text-align: center;">
+                            <div style="width: 60px; height: 60px; background: var(--secondary); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 0.5rem; color: white;">T</div>
+                            <div style="font-size: 0.875rem;">Tracker</div>
+                        </div>
+                        <div style="font-size: 1.5rem; color: var(--primary);">→</div>
+                        <div style="text-align: center;">
+                            <div style="width: 60px; height: 60px; background: var(--primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 0.5rem; color: white;">B</div>
+                            <div style="font-size: 0.875rem;">Sito B</div>
+                        </div>
+                    </div>
+                    <p style="margin: 0; color: var(--light-3); font-size: 0.875rem;">
+                        Il tracker riconosce lo stesso ID cookie su siti diversi, collegando le visite.
+                    </p>
+                </div>
+            </section>
+
+            <div class="divider"></div>
+
+            <section id="similar-tech">
+                <h2 class="content-title">
+                    <i class="fas fa-layer-group"></i>
+                    Tecnologie Simili e Alternative
+                </h2>
+                <p class="content-text">
+                    Oltre ai cookie tradizionali, esistono altre tecnologie che possono essere utilizzate 
+                    per il tracciamento degli utenti:
+                </p>
+                
+                <div class="features-grid" style="margin-top: 2rem;">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-fingerprint"></i>
+                        </div>
+                        <h3 class="feature-title">Fingerprinting</h3>
+                        <p class="feature-desc">
+                            Creazione di un identificatore univoco basato sulle caratteristiche 
+                            del browser e dispositivo dell'utente.
+                        </p>
+                        <div class="feature-tags">
+                            <span class="tag">Canvas</span>
+                            <span class="tag">WebGL</span>
+                            <span class="tag">Fonts</span>
+                        </div>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-database"></i>
+                        </div>
+                        <h3 class="feature-title">Local Storage</h3>
+                        <p class="feature-desc">
+                            Memorizzazione dati lato client con maggiore capacità rispetto ai cookie,
+                            ma limitata allo stesso dominio.
+                        </p>
+                        <div class="feature-tags">
+                            <span class="tag">HTML5</span>
+                            <span class="tag">Web Storage</span>
+                            <span class="tag">IndexedDB</span>
+                        </div>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-sync-alt"></i>
+                        </div>
+                        <h3 class="feature-title">ETags</h3>
+                        <p class="feature-desc">
+                            Utilizzo degli ETag HTTP per il tracciamento, anche quando i cookie 
+                            sono disabilitati dall'utente.
+                        </p>
+                        <div class="feature-tags">
+                            <span class="tag">HTTP</span>
+                            <span class="tag">Cache</span>
+                            <span class="tag">Tracking</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Footer -->
+        <!--#include virtual="components/footer.html" -->
+    </main>
+
+    <!-- JavaScript -->
+    <script src="assets/js/main.js"></script>
+</body>
+</html>

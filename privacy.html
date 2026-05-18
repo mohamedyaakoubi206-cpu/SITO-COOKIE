@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="it" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy & Sicurezza | Cookie Analytics Pro</title>
+    
+    <!-- Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            updateBreadcrumb('Privacy & Sicurezza');
+        });
+    </script>
+</head>
+<body>
+    <!--#include virtual="components/navbar.html" -->
+    <!--#include virtual="components/sidebar.html" -->
+
+    <main class="main-content">
+        <div class="breadcrumb" id="breadcrumb"></div>
+
+        <section class="hero-section fade-in">
+            <div class="hero-bg"></div>
+            <div class="hero-content">
+                <h1 class="hero-title">Privacy & Sicurezza</h1>
+                <p class="hero-subtitle">
+                    Analisi completa dei rischi per la privacy, tecniche di protezione, 
+                    e strategie per una gestione sicura dei dati personali nell'era digitale.
+                </p>
+            </div>
+        </section>
+
+        <!-- Stats Section -->
+        <div class="stats-grid">
+            <div class="stat-card fade-in" style="animation-delay: 0.1s;">
+                <div class="stat-value">83%</div>
+                <div class="stat-label">Utenti ritengono di essere tracciati</div>
+            </div>
+            <div class="stat-card fade-in" style="animation-delay: 0.2s;">
+                <div class="stat-value">64%</div>
+                <div class="stat-label">Cancella cookie regolarmente</div>
+            </div>
+            <div class="stat-card fade-in" style="animation-delay: 0.3s;">
+                <div class="stat-value">91%</div>
+                <div class="stat-label">Preoccupati per dati personali</div>
+            </div>
+            <div class="stat-card fade-in" style="animation-delay: 0.4s;">
+                <div class="stat-value">47%</div>
+                <div class="stat-label">Usa ad-blocker o anti-tracker</div>
+            </div>
+        </div>
+
+        <div class="page-content fade-in">
+            <section id="rischi">
+                <h2 class="content-title">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    Rischi per la Privacy
+                </h2>
+                <p class="content-text">
+                    I cookie di terze parti rappresentano una delle principali minacce alla privacy 
+                    online. Ecco i rischi più significativi:
+                </p>
+                
+                <div class="features-grid" style="margin-top: 1rem;">
+                    <div class="feature-card" style="background: rgba(239, 68, 68, 0.05);">
+                        <div class="feature-icon" style="background: rgba(239, 68, 68, 0.1); color: var(--danger);">
+                            <i class="fas fa-user-secret"></i>
+                        </div>
+                        <h3 class="feature-title">Profilazione Dettagliata</h3>
+                        <p class="feature-desc">
+                            Creazione di profili comportamentali completi basati sulla cronologia di 
+                            navigazione, interessi, acquisti, e attività online.
+                        </p>
+                    </div>
+                    
+                    <div class="feature-card" style="background: rgba(245, 158, 11, 0.05);">
+                        <div class="feature-icon" style="background: rgba(245, 158, 11, 0.1); color: var(--warning);">
+                            <i class="fas fa-link"></i>
+                        </div>
+                        <h3 class="feature-title">Cross-Device Tracking</h3>
+                        <p class="feature-desc">
+                            Collegamento dell'attività su smartphone, tablet, computer, e altri dispositivi 
+                            per un tracciamento completo dell'utente.
+                        </p>
+                    </div>
+                    
+                    <div class="feature-card" style="background: rgba(14, 165, 233, 0.05);">
+                        <div class="feature-icon" style="background: rgba(14, 165, 233, 0.1); color: var(--info);">
+                            <i class="fas fa-database"></i>
+                        </div>
+                        <h3 class="feature-title">Data Brokering</h3>
+                        <p class="feature-desc">
+                            Vendita e condivisione dei dati raccolti con terze parti, spesso senza 
+                            la conoscenza o il consenso esplicito degli utenti.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <div class="divider"></div>
+
+            <section id="fingerprinting">
+                <h2 class="content-title">
+                    <i class="fas fa-fingerprint"></i>
+                    Browser Fingerprinting
+                </h2>
+                <p class="content-text">
+                    Tecnica avanzata di tracciamento che crea un identificatore univoco basato sulle 
+                    caratteristiche del browser e del dispositivo dell'utente.
+                </p>
+                
+                <div class="code-block">
+                    <h4>Parametri Utilizzati per il Fingerprinting:</h4>
+                    <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; margin-top: 1rem;">
+                        <div>
+                            <ul class="content-list">
+                                <li>User Agent String</li>
+                                <li>Risoluzione Schermo</li>
+                                <li>Timezone</li>
+                                <li>Lingue Installate</li>
+                                <li>Plugin del Browser</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <ul class="content-list">
+                                <li>Canvas Fingerprinting</li>
+                                <li>WebGL Fingerprinting</li>
+                                <li>Fonts Installati</li>
+                                <li>Audio Context</li>
+                                <li>Battery Status</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div style="background: rgba(99, 102, 241, 0.1); padding: 1.5rem; border-radius: var(--radius-sm); margin: 1.5rem 0;">
+                    <h4 style="color: var(--primary); margin-bottom: 1rem;">
+                        <i class="fas fa-shield-alt"></i>
+                        Difendersi dal Fingerprinting
+                    </h4>
+                    <ul class="content-list" style="margin-bottom: 0;">
+                        <li>Utilizzare browser con protezioni anti-fingerprinting (Firefox, Brave)</li>
+                        <li>Installare estensioni come Privacy Badger o CanvasBlocker</li>
+                        <li>Disabilitare JavaScript quando non necessario</li>
+                        <li>Utilizzare VPN per nascondere l'indirizzo IP</li>
+                    </ul>
+                </div>
+            </section>
+
+            <div class="divider"></div>
+
+            <section id="protezione">
+                <h2 class="content-title">
+                    <i class="fas fa-shield-alt"></i>
+                    Misure di Protezione
+                </h2>
+                
+                <h3 class="content-title" style="font-size: 1.25rem; margin-top: 2rem;">
+                    Strumenti di Protezione Consigliati:
+                </h3>
+                
+                <div style="overflow-x: auto; margin: 1.5rem 0;">
+                    <table style="width: 100%; border-collapse: collapse;">
+                        <thead>
+                            <tr style="background: rgba(99, 102, 241, 0.1);">
+                                <th style="padding: 1rem; text-align: left; color: white;">Strumento</th>
+                                <th style="padding: 1rem; text-align: left; color: white;">Tipo</th>
+                                <th style="padding: 1rem; text-align: left; color: white;">Funzionalità</th>
+                                <th style="padding: 1rem; text-align: left; color: white;">Compatibilità</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr style="border-bottom: 1px solid rgba(255,255,255,0.1);">
+                                <td style="padding: 1rem; color: var(--light-3);">uBlock Origin</td>
+                                <td style="padding: 1rem; color: var(--light-3);">Estensione</td>
+                                <td style="padding: 1rem; color: var(--light-3);">Blocco annunci e tracker</td>
+                                <td style="padding: 1rem; color: var(--light-3);">Chrome, Firefox, Edge</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid rgba(255,255,255,0.1);">
+                                <td style="padding: 1rem; color: var(--light-3);">Privacy Badger</td>
+                                <td style="padding: 1rem; color: var(--light-3);">Estensione</td>
+                                <td style="padding: 1rem; color: var(--light-3);">Blocco tracker automatico</td>
+                                <td style="padding: 1rem; color: var(--light-3);">Chrome, Firefox, Edge</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid rgba(255,255,255,0.1);">
+                                <td style="padding: 1rem; color: var(--light-3);">Brave Browser</td>
+                                <td style="padding: 1rem; color: var(--light-3);">Browser</td>
+                                <td style="padding: 1rem; color: var(--light-3);">Protezioni integrate</td>
+                                <td style="padding: 1rem; color: var(--light-3);">Multi-piattaforma</td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 1rem; color: var(--light-3);">DuckDuckGo</td>
+                                <td style="padding: 1rem; color: var(--light-3);">Motore di ricerca</td>
+                                <td style="padding: 1rem; color: var(--light-3);">Ricerca privata</td>
+                                <td style="padding: 1rem; color: var(--light-3);">Browser, App</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <div class="divider"></div>
+
+            <section id="best-practices">
+                <h2 class="content-title">
+                    <i class="fas fa-check-circle"></i>
+                    Best Practices per Utenti
+                </h2>
+                <p class="content-text">
+                    Ecco le azioni concrete che gli utenti possono intraprendere per proteggere 
+                    la propria privacy online:
+                </p>
+                
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; margin-top: 1.5rem;">
+                    <div style="background: rgba(16, 185, 129, 0.1); padding: 1.5rem; border-radius: var(--radius-sm);">
+                        <h4 style="color: var(--secondary); margin-bottom: 1rem;">
+                            <i class="fas fa-browser"></i>
+                            Configurazione Browser
+                        </h4>
+                        <ul class="content-list" style="margin-bottom: 0;">
+                            <li>Blocca cookie di terze parti</li>
+                            <li>Abilita Do Not Track</li>
+                            <li>Pulisci cookie alla chiusura</li>
+                            <li>Usa modalità navigazione privata</li>
+                        </ul>
+                    </div>
+                    
+                    <div style="background: rgba(139, 92, 246, 0.1); padding: 1.5rem; border-radius: var(--radius-sm);">
+                        <h4 style="color: var(--accent); margin-bottom: 1rem;">
+                            <i class="fas fa-extensions"></i>
+                            Estensioni Privacy
+                        </h4>
+                        <ul class="content-list" style="margin-bottom: 0;">
+                            <li>Installa ad-blocker</li>
+                            <li>Usa privacy badger</li>
+                            <li>Script blocker</li>
+                            <li>Password manager</li>
+                        </ul>
+                    </div>
+                    
+                    <div style="background: rgba(14, 165, 233, 0.1); padding: 1.5rem; border-radius: var(--radius-sm);">
+                        <h4 style="color: var(--info); margin-bottom: 1rem;">
+                            <i class="fas fa-user-cog"></i>
+                            Comportamenti Sicuri
+                        </h4>
+                        <ul class="content-list" style="margin-bottom: 0;">
+                            <li>Leggi le informative cookie</li>
+                            <li>Rifiuta cookie non necessari</li>
+                            <li>Usa VPN per traffico sensibile</li>
+                            <li>Aggiorna regolarmente software</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!--#include virtual="components/footer.html" -->
+    </main>
+
+    <!-- Modals -->
+    <div class="modal" id="privacySettingsModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">Configurazione Privacy Browser</h3>
+                <button class="modal-close" onclick="closeModal('privacySettingsModal')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <h4>Impostazioni Consigliate:</h4>
+                <div style="margin: 1.5rem 0;">
+                    <div style="margin-bottom: 1rem;">
+                        <h5 style="color: white; margin-bottom: 0.5rem;">Cookie e Dati Sito</h5>
+                        <p style="color: var(--light-3);">✓ Blocca cookie di terze parti<br>
+                        ✓ Cancella cookie alla chiusura del browser<br>
+                        ✓ Non consentire ai siti di salvare dati</p>
+                    </div>
+                    
+                    <div style="margin-bottom: 1rem;">
+                        <h5 style="color: white; margin-bottom: 0.5rem;">Tracciamento</h5>
+                        <p style="color: var(--light-3);">✓ Invia richiesta "Do Not Track"<br>
+                        ✓ Blocca pop-up e reindirizzamenti<br>
+                        ✓ Blocca contenuti dannosi</p>
+                    </div>
+                    
+                    <div>
+                        <h5 style="color: white; margin-bottom: 0.5rem;">Sicurezza</h5>
+                        <p style="color: var(--light-3);">✓ Abilita protezione phishing/malware<br>
+                        ✓ Usa HTTPS ovunque possibile<br>
+                        ✓ Blocca download automatici</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
